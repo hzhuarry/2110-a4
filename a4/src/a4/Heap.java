@@ -7,37 +7,33 @@ public class Heap<E,P> implements PriorityQueue<E,P> {
 
 	@Override
 	public Comparator<? super P> comparator() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedError();
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		throw new NotImplementedError();
 	}
 
 	@Override
 	public E poll() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedError();
 	}
 
 	@Override
 	public E peek() throws NoSuchElementException {
-		// TODO Auto-generated method stub
-		return null;
+		throw new NotImplementedError();
 	}
 
 	@Override
 	public void add(E e, P p) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
+		throw new NotImplementedError();
 		
 	}
 
 	@Override
 	public void changePriority(E e, P p) throws NoSuchElementException {
-		// TODO Auto-generated method stub
+		throw new NotImplementedError();
 		
 	}
 
