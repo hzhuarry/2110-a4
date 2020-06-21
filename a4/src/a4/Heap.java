@@ -3,12 +3,12 @@ package a4;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class Heap<E,P> implements PriorityQueue<E,P> {
 	
 	private Comparator<? super P> cmp;
-	private ArrayList<Node> heap;
 	
 	private class Node implements Comparable<Node>{
 		E val;
@@ -24,6 +24,16 @@ public class Heap<E,P> implements PriorityQueue<E,P> {
 		public String toString() {
 			return val+" ("+priority+")";
 		}
+	}
+	private ArrayList<Node> heap;
+	
+	//heap[index[o]].val.equals(0)
+	private HashMap<E,Integer> index;
+	
+	public Heap(Comparator<P> c) {
+		this.cmp=c;
+		this.heap=new ArrayList<Node>();
+		this.index=new HashMap<E,Integer>();
 	}
 	
 	@Override
