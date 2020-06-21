@@ -1,10 +1,31 @@
 package a4;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
 public class Heap<E,P> implements PriorityQueue<E,P> {
-
+	
+	private Comparator<? super P> cmp;
+	private ArrayList<Node> heap;
+	
+	private class Node implements Comparable<Node>{
+		E val;
+		P priority;
+		public Node(E v,P p) {
+			this.val=v;
+			this.priority=p;
+		}
+		@Override
+		public int compareTo(Heap<E, P>.Node o) {
+			return cmp.compare(this.priority,o.priority);
+		}
+		public String toString() {
+			return val+" ("+priority+")";
+		}
+	}
+	
 	@Override
 	public Comparator<? super P> comparator() {
 		throw new NotImplementedError();
