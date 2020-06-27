@@ -1,10 +1,12 @@
 package a4;
-
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
+
+import org.junit.jupiter.api.Test;
 
 public class Heap<E,P> implements PriorityQueue<E,P> {
 	
@@ -149,5 +151,38 @@ public class Heap<E,P> implements PriorityQueue<E,P> {
 		ans.sort(Comparator.naturalOrder());
 		return ans.toString();
 	}
+	
+	//add some tests
+        private void check() {
+		assertEquals(heap.size(),index.size());
+		for(int i=0;i<size();++i) {
+			assertTrue(compare(i,parent(i))<0);
+		}
+		for(E o: this.index.keySet()) {
+			assertEquals(o,this.heap.get(this.index.get(o)).val);
+		}
+	}
 
+        public static class Tests {
+
+		@Test
+		public void tests() {
+			Comparator<Integer> cmp = Comparator.naturalOrder();
+			Heap<String,Integer> h = new Heap<String,Integer>(cmp);
+			h.check();
+			h.add("one", 1);
+			h.add("two", 2);
+			h.add("seven", 7);
+			h.check();
+			assertEquals(3,h.size());
+			assertEquals("seven", h.peek());
+			assertEquals("seven", h.poll());
+			h.check();
+			assertEquals("two", h.poll());
+			h.check();
+			assertEquals("one", h.poll());
+			h.check();
+			assertEquals(0, h.size());
+		}
+	}
 }
