@@ -164,7 +164,6 @@ public class Heap<E,P> implements PriorityQueue<E,P> {
 	}
 
         public static class Tests {
-
 		@Test
 		public void tests() {
 			Comparator<Integer> cmp = Comparator.naturalOrder();
